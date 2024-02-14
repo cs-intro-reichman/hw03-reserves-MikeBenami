@@ -30,7 +30,7 @@ public class LoanCalc {
     	double guess = loan / n;
 		iterationCounter = 0;
 		while (Math.abs(endBalance(loan, rate, n, guess)) > epsilon) {
-			guess += epsilon;
+			guess += loan / (n * 100);
 			iterationCounter++;
 			}
 			return guess;
@@ -56,7 +56,7 @@ public class LoanCalc {
 
 	private static double endBalance(double loan, double rate, int n, double payment) {
 		double balance = loan;
-		for(int i = 0; i > n ; i++){
+		for(int i = 0; i < n ; i++){
 			balance = (balance - payment) * (1 + rate);
 		}
 		return balance;
