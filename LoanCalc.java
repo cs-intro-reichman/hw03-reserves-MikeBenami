@@ -10,7 +10,7 @@ public class LoanCalc {
         double loan = Double.parseDouble(args[0]);
         double rate = Double.parseDouble(args[1]) / 100; 
         int n = Integer.parseInt(args[2]);
-        System.out.println("Loan sum = " + loan + ", interest rate = " +String.format("%.2f", rate * 100)  + "%, periods = " + n);
+        System.out.println("Loan sum = " + loan + ", interest rate = " +String.format("%.1f", rate * 100)  + "%, periods = " + n);
         
         
         System.out.print("Periodical payment, using brute force: ");
