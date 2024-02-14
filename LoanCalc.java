@@ -29,8 +29,9 @@ public class LoanCalc {
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {  
     	double guess = loan / n;
 		iterationCounter = 0;
+
 		while (Math.abs(endBalance(loan, rate, n, guess)) > epsilon) {
-			guess += loan / (n * 100);
+			guess += epsilon;
 			iterationCounter++;
 			}
 			return guess;
@@ -41,6 +42,7 @@ public class LoanCalc {
     	double lo = 0;
 		double hi = loan * (1 + rate);
     	iterationCounter = 0;
+
 		while (hi - lo > epsilon) {
 			double guess = (lo + hi)/ 2;;
 			double balance = endBalance(loan, rate, n, guess);
@@ -56,6 +58,7 @@ public class LoanCalc {
 
 	private static double endBalance(double loan, double rate, int n, double payment) {
 		double balance = loan;
+
 		for(int i = 0; i < n ; i++){
 			balance = (balance - payment) * (1 + rate);
 		}
